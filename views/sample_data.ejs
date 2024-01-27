@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+        width:100%;
+        margin: 0;
+        padding: 0;
+        font-family: arial;
+        background: -webkit-linear-gradient(right, royalblue, #8DC26F);
+        background: -moz-linear-gradient(right, royalblue, #8DC26F);
+        background: -o-linear-gradient(right, royalblue, #8DC26F);
+        background: linear-gradient(to left, royalblue, #8DC26F);
+        font-family: "Roboto", sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale; 
+      }
+    
+      .navi{
+      text-align: center;
+      height: 60px;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+    }
+    
+    nav{
+      margin: 0px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      background: #2c2d34; 
+    }
+    
+    nav p{
+      text-decoration: none;
+      color: white;
+      font-family: 'Gentium Book Basic', serif;
+      font-size: 25px;
+      /* font-weight: bold; */
+      text-align: center;
+    }
+    
+    
+    nav form input{
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      color: white;
+      background-color: transparent;
+      border: none;
+      font-family: 'Gentium Book Basic', serif;
+      font-size: 20px;
+    }
+    
+    nav form input:hover{
+      color: white;
+      background: #f95959; 
+      border: none;
+    }
+    
+      table {
+        margin-top: 6%;
+        margin-left: auto;
+        margin-right: auto;
+        border-collapse: collapse;
+        width: 80%;
+        background-color: white;
+        border-radius: 10px;
+      }
+      table th {
+        /* margin-top: 5%; */
+        /* border-radius: 10px; */
+        text-align: center;
+        padding: 2%;
+        background: #2c2d34; 
+        color: white;
+      }
+      tr:nth-child(even) {
+            background: radial-gradient(circle at 0% 0.5%, rgb(241, 241, 242) 0.1%, rgb(224, 226, 228) 100.2%);
+      }
+      table td {
+        text-align: center;
+        font-size: 12px;
+        padding:15px;
+        color: black;
+      }
+      </style>
+
+
+  <title>Database</title>
+</head>
+<body>
+  <div class="navi"><nav>
+			<p>Admin Dashboard</p>
+      <div></div>
+      <div></div>
+			<form action="/logout" method="GET">
+        <input type="submit" value="Logout">
+      </form>
+		</nav>
+  </div>
+  
+      <table>
+      <thead>
+        <tr>
+          <th>Report No</th>
+          <th>Phone No</th>
+          <th>Pin Code</th>
+          <th>Landmark</th>
+          <th>Picture URL</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% users.forEach(function(user) { %>
+          <tr>
+            <td><%= user.report_no %></td>
+            <td><%= user.phone_no %></td>
+            <td><%= user.pin_code %></td>
+            <td><%= user.land_mark %></td>
+            <td><a href="<%= user.picture_url %>" target="_blank">click here to view image</a></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+
+</body>
+</html>
